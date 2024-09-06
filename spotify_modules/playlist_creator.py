@@ -9,7 +9,7 @@ def add_required_tracks_to_playlist(required_tracks: list[Track], spotify_object
     duration_ms = 0
     for track in required_tracks:
         duration_ms += track.duration_ms
-        spotify_object.playlist_add_items(playlist_id, [track.uri])
+        spotify_object.playlist_add_items(playlist_id, [track.url])
 
     return duration_ms
 
@@ -23,7 +23,7 @@ def add_optional_tracks_to_playlist(optional_tracks: list[Track], spotify_object
         current_duration_ms += track.duration_ms
         if current_duration_ms > max_duration_ms:
             break
-        spotify_object.playlist_add_items(playlist_id, [track.uri])
+        spotify_object.playlist_add_items(playlist_id, [track.url])
         optional_tracks.remove(track)
 
 
